@@ -80,7 +80,7 @@ personal_portfolio/
 
 ## 🌐 Live Demo
 
-Check out the live version of the portfolio at [your-portfolio-url.com](https://your-portfolio-url.com)
+Check out the live version of the portfolio at [https://neelportfolio.vercel.app/]
 
 
 
