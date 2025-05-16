@@ -1,6 +1,6 @@
 # Neel Merja - Personal Portfolio
 
-![Portfolio Screenshot](Image/portfolio-screenshot.png)
+![Portfolio Screenshot]()
 
 A modern, responsive, and interactive personal portfolio website showcasing my skills, projects, and professional journey. Built with pure HTML, CSS, and JavaScript, this portfolio features a clean design with smooth animations and a dark/light theme toggle.
 
