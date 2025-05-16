@@ -70,7 +70,7 @@ personal_portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/personal_portfolio.git
+   git clone https://github.com/neel1112/personal_portfolio.git
    cd personal_portfolio
    ```
 
