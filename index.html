@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neel Merja</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Theme transition overlay styles */
+      #theme-transition-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--light-bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s ease, background-color 0.6s ease;
+      }
+      
+      .dark-mode #theme-transition-overlay {
+        background-color: var(--dark-bg);
+      }
+      
+      #theme-transition-overlay.active {
+        opacity: 1;
+      }
+      
+      .theme-transition-content {
+        text-align: center;
+        transform: scale(0.9);
+        opacity: 0;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+      }
+      
+      #theme-transition-overlay.active .theme-transition-content {
+        transform: scale(1);
+        opacity: 1;
+      }
+      
+      .transition-name {
+        font-size: 4rem;
+        font-weight: 800;
+        margin: 10px 0;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      .transition-subtitle {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--text-color);
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-family: 'Montserrat', sans-serif;
+      }
+      
+      .dark-mode .transition-subtitle {
+        color: #fff;
+      }
+      
+      /* Smooth transition for theme changes */
+      body {
+        transition: background-color 0.8s ease, color 0.8s ease;
+      }
+      
+      /* Gradient background animation */
+      @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+      }
+      /* Starter animation for hero section */
+      .starter-animate {
+        animation: fadeInUp 1.3s cubic-bezier(.17,.67,.83,.67) 1 both;
+      }
+      @keyframes fadeInUp {
+        0% {opacity: 0; transform: translateY(60px);}
+        100% {opacity: 1; transform: none;}
+      }
+      /* Reveal on scroll effect */
+      .reveal-on-scroll {opacity: 0; transform: translateY(40px); transition: all 0.7s cubic-bezier(.17,.67,.83,.67);}
+      .reveal-on-scroll.revealed {opacity: 1; transform: none;}
+    </style>
+</head>
+<body class="light-mode">
+    <!-- Full Screen Loading Overlay -->
+    <div id="fullscreen-loading">
+        <div class="loading-subtitle">welcome to </div>
+        <div class="loading-name">NEEL'S</div>
+        <div class="loading-subtitle">Portfolio</div>
+    </div>
+    
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button id="themeToggle" class="btn rounded-circle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    
+    <!-- Theme Transition Overlay -->
+    <div id="theme-transition-overlay">
+        <div class="theme-transition-content">
+            <div class="transition-subtitle">switching to</div>
+            <div class="transition-name"></div>
+            <div class="transition-subtitle">theme</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="logo-text">Neel</span><span class="logo-dot">.</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   <!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="particles-container" id="particles-js"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-content-wrapper">
+                <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="hero-tag">
+                        <span class="tag-line"></span>
+                        <span class="badge">BE Student & Developer</span>
+                    </div>
+                    <h1 class="hero-title">Crafting Digital <span class="accent-text">Experiences</span></h1>
+                    <h2 class="hero-subtitle">I'm <span class="highlight-text">Neel Merja</span></h2>
+                    <div class="typewriter-container">
+                        <span class="typewriter-prefix">Specialized in </span>
+                        <span id="typewriter" class="typewriter-text"></span>
+                    </div>
+                    
+                   
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image-overlay"></div>
+                        <img src="Image/1.jpg" alt="Neel Merja" class="hero-image light-mode-img">
+                        <img src="Image/4.jpg" alt="Neel Merja" class="hero-image dark-mode-img">
+                        <div class="hero-image-shape"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-shape-bottom">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill-opacity="1" d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,165.3C672,139,768,117,864,122.7C960,128,1056,160,1152,181.3C1248,203,1344,213,1392,218.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+    </div>
+    <div class="scroll-down">
+        <a href="#about" class="smooth-scroll">
+            <div class="scroll-circle">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </a>
+    </div>
+</section>
+<section id="about" class="py-5 reveal-on-scroll">
+    <div class="container">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <span class="subtitle">About Me</span>
+            <h2>Neel Merja</h2>
+            <div class="divider mx-auto"></div>
+        </div>
+        
+        <div class="row">
+            <!-- Left Column: About Me Content -->
+            <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                <div class="about-content p-4 h-100">
+    <h3 class="mb-3"> Computer Engineering Student</h3>
+    <div class="role-tags mb-4">
+        <span class="role-tag">Active Volunteer | Team Leader | Technology Explorer</span>
+    </div>
+    <p class="about-bio">
+        Hi! I'm Neel Merja from Gandhinagar, Gujarat. I'm studying Computer Engineering and I work as a web developer. I love learning new things about computers and technology.<br><br>
+        I'm a helpful person who likes to volunteer and work in teams. I've participated in activities like cleaning drives, blood donation camps, and planting trees with NSS. I've also led projects to solve real-life problems, like making education better for everyone.<br><br>
+        I'm good at using computers to find answers, build websites, and work with data. I know programming languages like Python, React.js, HTML, CSS, and JavaScript. I always try my best to learn, help others, and make a difference.
+    </p>
+    <div class="key-highlights mt-4">
+                        <div class="highlight-item">
+                           
+                        </div>
+                    </div>
+                    
+                    <div class="about-cta mt-4 text-center text-lg-start">
+                        <a href="https://drive.google.com/file/d/1zM882P5qZq_Xf-nricp783QMsG9FipiQ/view?usp=drivesdk" 
+                           class="btn btn-primary btn-lg d-block d-lg-inline-block mx-auto mx-lg-0" 
+                           download="MyCV.pdf">
+                            <i class="fas fa-download me-2"></i>Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column: Academic Excellence -->
+            <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="education-showcase p-4 h-100">
+                    <h4 class="education-title text-center mb-4">
+                        <span class="education-icon"><i class="fas fa-graduation-cap"></i></span> EDUCATION
+                    </h4>
+                    <div class="education-timeline">
+                        <div class="timeline-item active">
+                            <div class="timeline-badge">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h5>Bachelor of Engineering: Computer Engineering</h5>
+<h6 class="institution">LDRP Institute of Technology and Research, Gandhinagar</h6>
+<span class="location">Expected Graduation: June 2026 | CGPA: 8.53</span>
+                                </div>
+                                <div class="timeline-body">
+    <p>I am studying Computer Engineering and learning about topics like machine learning, data analysis, and web development. I enjoy using technology to solve problems and work on interesting projects.</p>
+</div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-badge">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h5>Higher Secondary Education (HSC)</h5>
+                                    <h6 class="institution">Shree sardar patel vidyalaya</h6>
+                                    <span class="location">Surendranagar, Gujarat</span>
+                                </div>
+                                <div class="timeline-body">
+                                    <p>Built a strong academic base in science, mathematics, and computer applications.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Skills Section -->
+<section id="skills" class="py-5 reveal-on-scroll">
+    <div class="container">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <span class="subtitle">My Skills</span>
+            <h2>Technical Toolbox</h2>
+            <div class="divider mx-auto"></div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Skills Overview -->
+            <div class="col-lg-4 mb-4" data-aos="fade-right" data-aos-duration="1000">
+                <div class="skills-overview p-4 rounded shadow-sm h-100">
+                    <h3 class="mb-4">My Expertise</h3>
+                    <p class="lead">I specialize in developing scalable and user-friendly web solutions by integrating frontend and backend technologies seamlessly.</p>
+                    <div class="skill-philosophy mt-4">
+                        <div class="skill-quote p-3 rounded">
+                            <i class="fas fa-quote-left quote-icon me-2"></i>
+                            <p class="mb-0">I believe in continuous learning and pushing the boundaries of what's possible with code.</p>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="#projects" class="btn btn-primary">See My Work</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills Categories -->
+            <div class="col-lg-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="skills-tabs p-4 rounded shadow-sm">
+                    <!-- Tab navigation -->
+                    <ul class="nav nav-pills mb-4 justify-content-center" id="skillsTabs" role="tablist">
+                        <li class="nav-item mx-2" role="presentation">
+                            <button class="nav-link active px-4 py-2" id="programming-tab" data-bs-toggle="tab" data-bs-target="#programming" type="button" role="tab" aria-selected="true">
+                                <i class="fas fa-code me-2"></i> Programming
+                            </button>
+                        </li>
+                        <li class="nav-item mx-2" role="presentation">
+                            <button class="nav-link px-4 py-2" id="web-tab" data-bs-toggle="tab" data-bs-target="#web" type="button" role="tab" aria-selected="false">
+                                <i class="fas fa-laptop-code me-2"></i> Web Dev
+                            </button>
+                        </li>
+                        <li class="nav-item mx-2" role="presentation">
+                            <button class="nav-link px-4 py-2" id="emerging-tab" data-bs-toggle="tab" data-bs-target="#emerging" type="button" role="tab" aria-selected="false">
+                                <i class="fas fa-brain me-2"></i> Emerging Tech
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <!-- Tab content -->
+                    <div class="tab-content pt-3" id="skillsTabContent">
+                        <!-- Programming Languages -->
+                        <div class="tab-pane fade show active" id="programming" role="tabpanel" aria-labelledby="programming-tab">
+                            <div class="row g-3">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fas fa-file-code fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">C</h5>
+                                        
+                                        <p class="mt-2 mb-0">Core programming fundamentals</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fas fa-file-code fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">C++</h5>
+                                        
+                                        <p class="mt-2 mb-0">Object-oriented programming</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fas fa-project-diagram fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">DSA</h5>
+                                        
+                                        <p class="mt-2 mb-0">Data structures & algorithms</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fab fa-java fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">Java</h5>
+                                        
+                                        <p class="mt-2 mb-0">Fundamentals of Java programming</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fab fa-python fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">Python</h5>
+                                       
+                                        <p class="mt-2 mb-0">Scripting and automation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Web Development -->
+                        <div class="tab-pane fade" id="web" role="tabpanel" aria-labelledby="web-tab">
+                            <div class="row g-3">
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fab fa-html5 fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">HTML</h5>
+                                        
+                                        <p class="mt-2 mb-0">Semantic markup</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fab fa-css3-alt fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">CSS</h5>
+                                        
+                                        <p class="mt-2 mb-0">Responsive design</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fab fa-js fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">JavaScript</h5>
+                                       
+                                        <p class="mt-2 mb-0">Interactive web elements</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fab fa-bootstrap fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">Bootstrap</h5>
+                                       
+                                        <p class="mt-2 mb-0">Responsive frameworks</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fab fa-python fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">Django</h5>
+                                        
+                                        <p class="mt-2 mb-0">Full-stack web framework</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-lg-4">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fas fa-database fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">MySQL</h5>
+                                        
+                                        <p class="mt-2 mb-0">Database management</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Emerging Tech -->
+                        <div class="tab-pane fade" id="emerging" role="tabpanel" aria-labelledby="emerging-tab">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="skill-card p-3 rounded text-center h-100">
+                                        <div class="skill-icon mb-3">
+                                            <i class="fas fa-robot fa-2x"></i>
+                                        </div>
+                                        <h5 class="mb-2">AI & Machine Learning</h5>
+                                       
+                                        <p class="mt-2 mb-0">Intelligent systems development</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 reveal-on-scroll">
+        <div class="container">
+            <div class="section-title text-center mb-5" data-aos="fade-up">
+                <span class="subtitle">My Projects</span>
+                <h2>What I've Created</h2>
+                <div class="divider mx-auto"></div>
+                <p class="section-subtitle">Each project is a unique piece of development that showcases my skills and passion.</p>
+            </div>
+           
+            <div class="row project-card-grid">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-project-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="custom-card-img">
+                            <img src="Image/Event/admin-login.jpeg" alt="Event Management System">
+                        </div>
+                        <div class="custom-card-body">
+                            <h5 class="custom-card-title">Event Management System</h5>
+                            <p class="custom-card-text">A comprehensive event management platform for creating, managing, and attending events with user authentication and admin panel.</p>
+                            <button id="openEventProjectModal" class="btn btn-outline-primary btn-sm mt-2 w-100">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-project-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="custom-card-img">
+                            <img src="Image/project4.jpg" alt="Project 4">
+                        </div>
+                        <div class="custom-card-body">
+                            <h5 class="custom-card-title">Vitamin diseases detection</h5>
+                            <p class="custom-card-text">A vitamin diseases detection website built with HTML, CSS, and JavaScript to showcase projects and skills.</p>
+                            <button id="openVitaminProjectModal" class="btn btn-outline-primary btn-sm mt-2 w-100">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="custom-card-img">
+                            <img src="Image/project3.png" alt="Project 1">
+                        </div>
+                        <div class="custom-card-body">
+                            <h5 class="custom-card-title">Personal portfolio website</h5>
+                            <p class="custom-card-text">A personal portfolio website built with HTML, CSS, and JavaScript to showcase projects and skills.</p>
+                            <button id="openPortfolioProjectModal" class="btn btn-outline-primary btn-sm mt-2 w-100">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="custom-project-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="custom-card-img">
+                            <img src="Image/project5.jpg" alt="Project 5">
+                        </div>
+                        <div class="custom-card-body">
+                            <h5 class="custom-card-title">Skin diseases detection </h5>
+<p class="custom-card-text">A skin diseases detection website built with HTML, CSS, and JavaScript to showcase projects and skills.</p>
+<button id="openSkinProjectModal" class="btn btn-outline-primary btn-sm mt-2 w-100">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+              
+            </div>
+    
+</div>
+            
+        </div>
+    </section>
+
+    
+   <!-- Contact Section -->
+<section id="contact" class="py-5 reveal-on-scroll">
+    <div class="container">
+        <div class="section-title text-center mb-5" data-aos="fade-up">
+            <span class="subtitle">Contact Me</span>
+            <h2>Let's Work Together</h2>
+            <div class="divider mx-auto"></div>
+            <p class="section-subtitle">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Reach out for technology, retail, or data-driven solutions!</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up" data-aos-duration="1000">
+                <div class="contact-wrapper">
+                    <div class="contact-info-card">
+                        <div class="contact-header text-center mb-5">
+                            <div class="contact-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <h3>Get In Touch</h3>
+                           
+                        </div>
+                        
+                        <div class="contact-details">
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="contact-item">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="contact-content">
+                                            <h5>Location</h5>
+                                            <p>Gandhinagar, Gujarat 382016</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="contact-item">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-content">
+                                            <h5>Email</h5>
+                                            <p>neelmerja@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="contact-item">
+                                        <div class="contact-icon">
+                                            <i class="fas fa-phone"></i>
+                                        </div>
+                                        <div class="contact-content">
+                                            <h5>Call</h5>
+                                            <p>+91 9639563714</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-social">
+                            <h5 class="text-center mb-4">Connect With Me</h5>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/neelmerja" class="social-link" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/neel1112" class="social-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://www.instagram.com/n_e_e_l_.11?igsh=NGQ0YzA3czYwOWl0" class="social-link" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div class="copyright">
+                    <p>&copy; 2025 Neel Merja. All Rights Reserved.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="footer-links text-md-end">
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#about" class="footer-link">Skills</a>
+                    <a href="#projects" class="footer-link">Projects</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+    
+
+<!-- Back to Top Button -->
+<a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="vitamin-modal.js"></script>
+    <!-- AOS JS for Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Add this new function at the beginning of your script
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = sectionPosition - navbarHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS (Animate On Scroll)
+            AOS.init({
+                duration: 100,
+                once: true,
+                offset: 100
+            });
+
+            // Reveal on scroll logic for custom sections
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealElements.forEach(el => revealObserver.observe(el));
+        
+            // Typewriter effect
+            const typewriterElement = document.getElementById('typewriter');
+            if (typewriterElement) {
+                const words = ['Web Development.', 'Full-Stack Solution.', 'Python Web Technologies.', 'Responsive Design.'];
+                let wordIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+                let typeSpeed = 100;
+        
+                function typeEffect() {
+                    const currentWord = words[wordIndex];
+                    
+                    if (isDeleting) {
+                        typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                        charIndex--;
+                        typeSpeed = 50;
+                    } else {
+                        typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                        charIndex++;
+                        typeSpeed = 100;
+                    }
+        
+                    if (!isDeleting && charIndex === currentWord.length) {
+                        isDeleting = true;
+                        typeSpeed = 1000; // Pause at end
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        typeSpeed = 500; // Pause before typing next word
+                    }
+        
+                    setTimeout(typeEffect, typeSpeed);
+                }
+        
+                // Start the typewriter effect
+                typeEffect();
+            }
+        
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const icon = themeToggle.querySelector('i');
+        
+            // Check for saved theme preference or use default
+            const savedTheme = localStorage.getItem('theme') || 'light-mode';
+            body.className = savedTheme;
+        
+            // Update icon based on current theme
+            if (savedTheme === 'dark-mode') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                
+                // Update particles for dark mode
+                if (window.pJSDom && window.pJSDom.length > 0) {
+                    window.pJSDom[0].pJS.particles.color.value = "#555555";
+                    window.pJSDom[0].pJS.particles.line_linked.color = "#555555";
+                    window.pJSDom[0].pJS.fn.particlesRefresh();
+                }
+            }
+        
+            const themeTransition = document.getElementById('theme-transition-overlay');
+            const transitionContent = themeTransition.querySelector('.theme-transition-content');
+            
+            function startThemeTransition(isDark) {
+                // Update the theme text
+                const themeText = isDark ? 'dark' : 'light';
+                themeTransition.querySelector('.transition-subtitle:last-child').textContent = themeText + ' theme';
+                
+                // Start the transition
+                themeTransition.style.display = 'flex';
+                void themeTransition.offsetHeight; // Force reflow
+                themeTransition.classList.add('active');
+                
+                // Change theme after a short delay
+                setTimeout(() => {
+                    if (isDark) {
+                        body.classList.remove('light-mode');
+                        body.classList.add('dark-mode');
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                        localStorage.setItem('theme', 'dark-mode');
+                        
+                        // Update particles for dark mode
+                        if (window.pJSDom && window.pJSDom.length > 0) {
+                            window.pJSDom[0].pJS.particles.color.value = "#555555";
+                            window.pJSDom[0].pJS.particles.line_linked.color = "#555555";
+                            window.pJSDom[0].pJS.fn.particlesRefresh();
+                        }
+                    } else {
+                        body.classList.remove('dark-mode');
+                        body.classList.add('light-mode');
+                        icon.classList.remove('fa-sun');
+                        icon.classList.add('fa-moon');
+                        localStorage.setItem('theme', 'light-mode');
+                        
+                        // Update particles for light mode
+                        if (window.pJSDom && window.pJSDom.length > 0) {
+                            window.pJSDom[0].pJS.particles.color.value = "#ffffff";
+                            window.pJSDom[0].pJS.particles.line_linked.color = "#ffffff";
+                            window.pJSDom[0].pJS.fn.particlesRefresh();
+                        }
+                    }
+                    
+                    // End the transition
+                    setTimeout(() => {
+                        themeTransition.classList.remove('active');
+                        setTimeout(() => {
+                            themeTransition.style.display = 'none';
+                        }, 600);
+                    }, 1000);
+                }, 300);
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                const isDark = !body.classList.contains('dark-mode');
+                startThemeTransition(isDark);
+            });
+        
+            // Navbar active link highlighting
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            function highlightNavItem() {
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href') === '#' + sectionId) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', highlightNavItem);
+        
+            // Project filtering functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            
+                            // Refresh AOS animations on filtered items
+                            setTimeout(() => {
+                                AOS.refresh();
+                            }, 100);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        
+            // Project modals functionality
+            const vitaminProjectModal = document.getElementById('vitaminProjectModal');
+            const skinProjectModal = document.getElementById('skinProjectModal');
+            const portfolioProjectModal = document.getElementById('portfolioProjectModal');
+            
+            // Open modals
+            document.getElementById('openVitaminProjectModal').addEventListener('click', () => {
+                vitaminProjectModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            document.getElementById('openSkinProjectModal').addEventListener('click', () => {
+                skinProjectModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+
+            document.getElementById('openPortfolioProjectModal').addEventListener('click', () => {
+                portfolioProjectModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+
+            document.getElementById('openEventProjectModal').addEventListener('click', () => {
+                eventProjectModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close modals when clicking the close button
+            document.getElementById('closeVitaminProjectModal').addEventListener('click', () => {
+                vitaminProjectModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            document.getElementById('closeSkinProjectModal').addEventListener('click', () => {
+                skinProjectModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            document.getElementById('closePortfolioProjectModal').addEventListener('click', () => {
+                portfolioProjectModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            document.getElementById('closeEventProjectModal').addEventListener('click', () => {
+                eventProjectModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Initialize Event Management System slider
+            const eventSliderImg = document.getElementById('eventSliderImg');
+            const eventSliderPrev = document.getElementById('eventSliderPrev');
+            const eventSliderNext = document.getElementById('eventSliderNext');
+            const eventSliderSummary = document.getElementById('eventSliderSummary');
+            
+            const eventImages = [
+                { src: 'Image/Event/homepage.jpeg', alt: 'Homepage', desc: 'Homepage of the Event Management System.' },
+                { src: 'Image/Event/aboutpage.jpeg', alt: 'About Page', desc: 'About page with information about the platform.' },
+                { src: 'Image/Event/contectuspage.jpeg', alt: 'Contact Us', desc: 'Contact page with a form to get in touch with the team.' },
+                { src: 'Image/Event/eventpage.jpeg', alt: 'Events Page', desc: 'Browse and search for upcoming events.' },
+                { src: 'Image/Event/gallarypage.jpeg', alt: 'Gallery', desc: 'Photo gallery of past events.' },
+                { src: 'Image/Event/loginpopup.jpeg', alt: 'Login Popup', desc: 'User login popup for accessing the system.' },
+                { src: 'Image/Event/profilepage.jpg', alt: 'User Profile', desc: 'User profile page showing personal information and event history.' },
+                { src: 'Image/Event/Admin-login.jpeg', alt: 'Admin Login', desc: 'Admin login page for administrative access.' },
+                { src: 'Image/Event/eventpost-ADMIN SIDE.jpeg', alt: 'Event Management', desc: 'Admin panel for managing events.' },
+                { src: 'Image/Event/userlist-ADMIN SIDE.jpeg', alt: 'User Management', desc: 'Admin panel for managing users.' },
+                { src: 'Image/Event/personal details-ADMIN SIDE.jpeg', alt: 'Personal Details', desc: 'Admin view of user personal details.' },
+                { src: 'Image/Event/post catagory-ADMIN SIDE.jpeg', alt: 'Post Categories', desc: 'Admin panel for managing event categories.' }
+            ];
+            
+            let currentEventSlide = 0;
+            
+            function updateEventSlider() {
+                eventSliderImg.src = eventImages[currentEventSlide].src;
+                eventSliderImg.alt = eventImages[currentEventSlide].alt;
+                eventSliderSummary.textContent = eventImages[currentEventSlide].desc;
+                
+                // Update indicators
+                const indicators = document.getElementById('eventSliderIndicators');
+                indicators.innerHTML = '';
+                eventImages.forEach((_, index) => {
+                    const indicator = document.createElement('span');
+                    indicator.className = `slider-indicator ${index === currentEventSlide ? 'active' : ''}`;
+                    indicator.onclick = () => {
+                        currentEventSlide = index;
+                        updateEventSlider();
+                    };
+                    indicators.appendChild(indicator);
+                });
+            }
+            
+            eventSliderPrev.addEventListener('click', () => {
+                currentEventSlide = (currentEventSlide - 1 + eventImages.length) % eventImages.length;
+                updateEventSlider();
+            });
+            
+            eventSliderNext.addEventListener('click', () => {
+                currentEventSlide = (currentEventSlide + 1) % eventImages.length;
+                updateEventSlider();
+            });
+            
+            // Initialize slider
+            updateEventSlider();
+            
+            // Close modals when clicking outside the modal content
+            window.addEventListener('click', (e) => {
+                if (e.target === vitaminProjectModal) {
+                    vitaminProjectModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (e.target === skinProjectModal) {
+                    skinProjectModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (e.target === portfolioProjectModal) {
+                    portfolioProjectModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        
+            // Smooth scrolling functionality
+            function smoothScroll(target, duration = 100) {
+                const targetElement = document.querySelector(target);
+                if (!targetElement) return;
+
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition - 80; // 80px offset for fixed navbar
+                let startTime = null;
+
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+
+                requestAnimationFrame(animation);
+            }
+
+            // Add click event listeners to all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href');
+                    if (target === '#') return;
+                    
+                    smoothScroll(target);
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                });
+            });
+        
+            // Add specific event listeners for hero buttons
+            const heroButtons = document.querySelectorAll('.hero-buttons button');
+            heroButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const target = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    smoothScroll('#' + target);
+                });
+            });
+        
+            // Back to top button functionality
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                smoothScroll('#home');
+            });
+        
+            // Notification function
+            function showNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                        <span>${message}</span>
+                    </div>
+                    <button class="notification-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+
+                document.body.appendChild(notification);
+
+                // Add show class after a small delay
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 100);
+
+                // Remove notification after 5 seconds
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 5000);
+
+                // Close button functionality
+                notification.querySelector('.notification-close').addEventListener('click', () => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                });
+            }
+        
+            // Handle navbar background change on scroll
+            const navbar = document.querySelector('.navbar');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+            });
+        
+            // Run once on load to set initial states
+            highlightNavItem();
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            }
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+    </script>
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        if (document.getElementById('particles-js')) {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+    </script>
+    <script>
+        // Fullscreen Loading Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('fullscreen-loading');
+            
+            // Hide loading screen after animation completes (3.2s + 0.8s fade out)
+            setTimeout(() => {
+                // Remove the loading screen from the DOM after fade out
+                loadingScreen.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 4000); // 4000ms = 3.2s (delay) + 0.8s (fade out duration)
+        });
+
+        // Skills Section Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize skill progress bars when they come into view
+            const skillBars = document.querySelectorAll('.skill-level .progress-bar');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressBar = entry.target;
+                        const value = progressBar.getAttribute('aria-valuenow');
+                        progressBar.style.width = '0%';
+                        
+                        setTimeout(() => {
+                            progressBar.style.width = value + '%';
+                        }, 100);
+                        
+                        // Unobserve after animation
+                        observer.unobserve(progressBar);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            skillBars.forEach(bar => {
+                observer.observe(bar);
+            });
+            
+            // Handle tab switching and ensure proper AOS refresh
+            const tabButtons = document.querySelectorAll('#skillsTabs .nav-link');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Wait for tab content to become visible
+                    setTimeout(() => {
+                        // Refresh AOS animations
+                        AOS.refresh();
+                        
+                        // Reinitialize skill progress bars in the newly active tab
+                        const activeTab = document.querySelector(this.getAttribute('data-bs-target'));
+                        const visibleBars = activeTab.querySelectorAll('.skill-level .progress-bar');
+                        
+                        visibleBars.forEach(bar => {
+                            const value = bar.getAttribute('aria-valuenow');
+                            bar.style.width = '0%';
+                            
+                            setTimeout(() => {
+                                bar.style.width = value + '%';
+                            }, 100);
+                        });
+                    }, 300);
+                });
+            });
+            
+            // Update skill section appearance based on theme
+            const themeToggle = document.getElementById('themeToggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    // Allow transition to complete before refreshing AOS
+                    setTimeout(() => {
+                        AOS.refresh();
+                    }, 500);
+                });
+            }
+        });
+    </script>
+
+
+
+<!-- Vitamin Diseases Detection Modal -->
+<div class="project-modal" id="vitaminProjectModal">
+  <div class="project-modal-dialog fade-in-modal">
+    <div class="project-modal-content">
+      <div class="project-modal-left">
+        <div class="project-modal-header">
+          <div class="project-modal-header-main">
+            <h2 class="project-modal-title">Vitamin Diseases Detection</h2>
+            <div class="project-modal-subtitle">Project Analysis & Details</div>
+          </div>
+          <button class="btn btn-outline-secondary" id="closeVitaminProjectModal" style="font-size:1.5rem;line-height:1;">&times;</button>
+        </div>
+        <div class="project-modal-body">
+          <p class="project-modal-description">
+            <!-- Replace this with your actual analysis of the project -->
+            This project uses advanced machine learning (e.g., CNN, transfer learning) to detect vitamin-related diseases from images. It features a modern web interface, real-time predictions, and a detailed report generator. <br>
+            <span class="project-modal-badge">Python</span>
+            <span class="project-modal-badge">TensorFlow</span>
+            <span class="project-modal-badge">Flask</span>
+            <span class="project-modal-badge">HTML/CSS/JS</span>
+          </p>
+          <div class="project-modal-features">
+            <span class="feature-badge"><i class="fas fa-brain"></i> Deep Learning</span>
+            <span class="feature-badge"><i class="fas fa-chart-line"></i> Result Analysis</span>
+            <span class="feature-badge"><i class="fas fa-laptop-code"></i> Web Integration</span>
+          </div>
+          <hr class="project-modal-divider">
+          <p>Key Features:</p>
+          <ul>
+            <li>Automated vitamin disease prediction from user-uploaded images</li>
+            <li>Interactive result visualization and downloadable reports</li>
+            <li>Responsive, user-friendly interface</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-modal-right">
+        <div class="project-modal-slider">
+          <button class="project-modal-slider-btn" id="vitaminSliderPrev" aria-label="Previous image" style="position:absolute;left:0;top:50%;transform:translateY(-50%);"><i class="fas fa-chevron-left"></i></button>
+          <img id="vitaminSliderImg" src="Image/vitaproject/ABOUTSS.jpeg" alt="Vitamin Project Screenshot" style="max-width:100%;border-radius:1rem;display:block;margin:auto;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <button class="project-modal-slider-btn" id="vitaminSliderNext" aria-label="Next image" style="position:absolute;right:0;top:50%;transform:translateY(-50%);"><i class="fas fa-chevron-right"></i></button>
+          <div id="vitaminSliderSummary" style="margin-top:1rem;text-align:center;color:#333;font-size:1rem;min-height:48px;">About section of the Vitamin Diseases Detection project.</div>
+        </div>
+        <div class="project-modal-cta" style="margin-top:2rem;justify-content:center;">
+          <a href="https://github.com/neel1112/vitamin_problem_detector.git" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1.1rem;display:inline-flex;align-items:center;gap:0.5rem;"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Skin Diseases Detection Modal -->
+<div class="project-modal" id="skinProjectModal">
+  <div class="project-modal-dialog fade-in-modal">
+    <div class="project-modal-content">
+      <div class="project-modal-left">
+        <div class="project-modal-header">
+          <div class="project-modal-header-main">
+            <h2 class="project-modal-title">Skin Diseases Detection</h2>
+            <div class="project-modal-subtitle">Project Gallery & Details</div>
+          </div>
+          <button class="btn btn-outline-secondary" id="closeSkinProjectModal" style="font-size:1.5rem;line-height:1;">&times;</button>
+        </div>
+        <div class="project-modal-body">
+          <p class="project-modal-description">
+            This project leverages deep learning and computer vision to automatically detect a variety of skin diseases from clinical images. It features an interactive gallery, model explanations, and a robust backend for real-time predictions. <br>
+            <span class="project-modal-badge">Python</span>
+            <span class="project-modal-badge">TensorFlow</span>
+            <span class="project-modal-badge">Flask</span>
+            <span class="project-modal-badge">HTML/CSS/JS</span>
+          </p>
+          <div class="project-modal-features">
+            <span class="feature-badge"><i class="fas fa-microscope"></i> AI Diagnosis</span>
+            <span class="feature-badge"><i class="fas fa-images"></i> Image Gallery</span>
+            <span class="feature-badge"><i class="fas fa-user-friends"></i> User-Friendly</span>
+          </div>
+          <hr class="project-modal-divider">
+          <p>Key Features:</p>
+          <ul>
+            <li>Automatic detection of multiple skin disease types from images</li>
+            <li>Interactive gallery with sample predictions and explanations</li>
+            <li>Modern, responsive UI with dark/light mode support</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-modal-right">
+        <div class="project-modal-slider">
+          <button class="project-modal-slider-btn" id="skinSliderPrev" aria-label="Previous image" style="position:absolute;left:0;top:50%;transform:translateY(-50%);"><i class="fas fa-chevron-left"></i></button>
+          <img id="skinSliderImg" src="Image/skinproject/ABOUTSS.png" alt="Skin Project Screenshot" style="max-width:100%;border-radius:1rem;display:block;margin:auto;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <button class="project-modal-slider-btn" id="skinSliderNext" aria-label="Next image" style="position:absolute;right:0;top:50%;transform:translateY(-50%);"><i class="fas fa-chevron-right"></i></button>
+          <div id="skinSliderIndicators" style="text-align:center;margin-top:0.5rem;"></div>
+          <div id="skinSliderSummary" style="margin-top:1rem;text-align:center;color:var(--text-color);font-size:1rem;min-height:48px;">About section of the Skin Diseases Detection project.</div>
+        </div>
+        <div class="project-modal-cta" style="margin-top:2rem;justify-content:center;">
+          <a href="https://github.com/neel1112/skin_problem_detector.git" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1.1rem;display:inline-flex;align-items:center;gap:0.5rem;"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Event Management System Modal -->
+<div class="project-modal" id="eventProjectModal">
+  <div class="project-modal-dialog fade-in-modal">
+    <div class="project-modal-content">
+      <div class="project-modal-left">
+        <div class="project-modal-header">
+          <div class="project-modal-header-main">
+            <h2 class="project-modal-title">Event Management System</h2>
+            <div class="project-modal-subtitle">Project Showcase & Details</div>
+          </div>
+          <button class="btn btn-outline-secondary" id="closeEventProjectModal" style="font-size:1.5rem;line-height:1;">&times;</button>
+        </div>
+        <div class="project-modal-body">
+          <p class="project-modal-description">
+            A comprehensive event management platform that allows users to create, manage, and attend events. Features include user authentication, event creation, gallery, and a powerful admin dashboard for managing users and content.<br>
+            <span class="project-modal-badge">PHP</span>
+            <span class="project-modal-badge">MySQL</span>
+            <span class="project-modal-badge">JavaScript</span>
+            <span class="project-modal-badge">Bootstrap</span>
+          </p>
+          <div class="project-modal-features">
+            <span class="feature-badge"><i class="fas fa-calendar-alt"></i> Event Management</span>
+            <span class="feature-badge"><i class="fas fa-users"></i> User System</span>
+            <span class="feature-badge"><i class="fas fa-tachometer-alt"></i> Admin Dashboard</span>
+          </div>
+          <hr class="project-modal-divider">
+          <p>Key Features:</p>
+          <ul>
+            <li>User registration and authentication system</li>
+            <li>Event creation and management with categories</li>
+            <li>Interactive event gallery and details pages</li>
+            <li>Admin panel for user and content management</li>
+            <li>Responsive design for all devices</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-modal-right">
+        <div class="project-modal-slider">
+          <button class="project-modal-slider-btn" id="eventSliderPrev" aria-label="Previous image" style="position:absolute;left:0;top:50%;transform:translateY(-50%);"><i class="fas fa-chevron-left"></i></button>
+          <img id="eventSliderImg" src="Image/Event/homepage.jpeg" alt="Event Management System Screenshot" style="max-width:100%;border-radius:1rem;display:block;margin:auto;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <button class="project-modal-slider-btn" id="eventSliderNext" aria-label="Next image" style="position:absolute;right:0;top:50%;transform:translateY(-50%);"><i class="fas fa-chevron-right"></i></button>
+          <div id="eventSliderIndicators" style="text-align:center;margin-top:0.5rem;"></div>
+          <div id="eventSliderSummary" style="margin-top:1rem;text-align:center;color:var(--text-color);font-size:1rem;min-height:48px;">Homepage of the Event Management System.</div>
+        </div>
+        <div class="project-modal-cta" style="margin-top:2rem;justify-content:center;">
+          <a href="https://github.com/neel1112/Event_Management_Project.git" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1.1rem;display:inline-flex;align-items:center;gap:0.5rem;"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Portfolio Project Modal -->
+<div class="project-modal" id="portfolioProjectModal">
+  <div class="project-modal-dialog fade-in-modal">
+    <div class="project-modal-content">
+      <div class="project-modal-left">
+        <div class="project-modal-header">
+          <div class="project-modal-header-main">
+            <h2 class="project-modal-title">Personal Portfolio</h2>
+            <div class="project-modal-subtitle">Project Showcase & Details</div>
+          </div>
+          <button class="btn btn-outline-secondary" id="closePortfolioProjectModal" style="font-size:1.5rem;line-height:1;">&times;</button>
+        </div>
+        <div class="project-modal-body">
+          <p class="project-modal-description">
+            A modern, responsive portfolio website built with HTML, CSS, and JavaScript. This project showcases my skills, projects, and experience in a clean and professional manner. <br>
+            <span class="project-modal-badge">HTML5</span>
+            <span class="project-modal-badge">CSS3</span>
+            <span class="project-modal-badge">JavaScript</span>
+            <span class="project-modal-badge">Bootstrap 5</span>
+          </p>
+          <div class="project-modal-features">
+            <span class="feature-badge"><i class="fas fa-mobile-alt"></i> Responsive</span>
+            <span class="feature-badge"><i class="fas fa-palette"></i> Dark/Light Mode</span>
+            <span class="feature-badge"><i class="fas fa-rocket"></i> Fast & Lightweight</span>
+          </div>
+          <hr class="project-modal-divider">
+          <p>Key Features:</p>
+          <ul>
+            <li>Fully responsive design that works on all devices</li>
+            <li>Dark/light mode toggle with smooth transitions</li>
+            <li>Interactive project showcase with modals</li>
+            <li>Smooth scrolling navigation</li>
+            <li>Animated elements on scroll</li>
+          </ul>
+        </div>
+      </div>
+      <div class="project-modal-right">
+        <div class="project-modal-slider">
+          <button class="project-modal-slider-btn" id="portfolioSliderPrev" aria-label="Previous image" style="position:absolute;left:0;top:50%;transform:translateY(-50%);"><i class="fas fa-chevron-left"></i></button>
+          <img id="portfolioSliderImg" src="Image/project3.png" alt="Portfolio Project Screenshot" style="max-width:100%;border-radius:1rem;display:block;margin:auto;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <button class="project-modal-slider-btn" id="portfolioSliderNext" aria-label="Next image" style="position:absolute;right:0;top:50%;transform:translateY(-50%);"><i class="fas fa-chevron-right"></i></button>
+          <div id="portfolioSliderIndicators" style="text-align:center;margin-top:0.5rem;"></div>
+          <div id="portfolioSliderSummary" style="margin-top:1rem;text-align:center;color:var(--text-color);font-size:1rem;min-height:48px;">Homepage of the Personal Portfolio website.</div>
+        </div>
+        <div class="project-modal-cta" style="margin-top:2rem;justify-content:center;">
+          <a href="https://github.com/neel1112/personal_portfolio.git" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1.1rem;display:inline-flex;align-items:center;gap:0.5rem;"><i class="fab fa-github"></i> GitHub Repo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script>
